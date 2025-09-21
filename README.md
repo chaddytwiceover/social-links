@@ -2,24 +2,39 @@
 
 A small cyberpunk-themed link landing page built with plain HTML, CSS and JavaScript.
 
+## Overview
+
+Minimal landing page that aggregates socials and points to the main site. Uses Google Fonts and Font Awesome for typography and icons.
+
 ## Files
-- [index.html](index.html) — markup and page structure.
-- [style.css](style.css) — styling, animations and responsive rules.
-- [script.js](script.js) — small scripts:
-  - [`fitHeading`](script.js) — responsive auto-fit routine that scales the `.glitch` heading.
-  - [`fits`](script.js) — helper used by the auto-fit binary search.
+
+- index.html — markup and page structure. Contains social buttons (X/Twitter, Instagram, TikTok, GitHub), a minimal main-domain link (globe icon + domain text), and a centered footer.
+- style.css — styling, responsive rules, centered footer layout, and an accessible `.visually-hidden` helper.
+- script.js — small scripts:
+  - `fitHeading` — responsive auto-fit routine that scales the `.glitch` heading.
+  - Footer year auto-fill targeting `#year`.
 
 ## Usage
-1. Open [index.html](index.html) in your browser (no build step required).
-2. The page uses a local font import and Font Awesome CDN for icons.
+
+1. Open `index.html` in a browser (no build step required).
+2. Internet connection required for Google Fonts and Font Awesome CDN:
+   - Google Fonts: Orbitron
+   - Font Awesome: cdn (used for social icons and globe)
 
 ## Customization
-- Edit [style.css](style.css) to change theme colors, spacing, or button styles.
-- Tweak the auto-fit range in [script.js](script.js) (constants `MIN` / `MAX`) to adjust heading scaling.
 
-## Notes
-- The heading auto-fit runs on `load`, `resize`, and when fonts finish loading to keep the `.glitch` text on a single line.
-- Footer year is auto-filled by the script targeting `id="year"` in [index.html](index.html).
+- Update social links in `index.html` (each `.social-button`).
+- Replace or remove the main-domain URL at the `.domain-link` anchor.
+- Tweak colors, spacing, and footer layout in `style.css`.
+- Adjust heading auto-fit constants in `script.js` if needed.
+
+## Accessibility & Notes
+
+- Links that open a new tab include `rel="noopener noreferrer"`.
+- The main-domain link includes a globe icon and a `.visually-hidden` label for screen readers.
+- The `.glitch` heading is kept on one line via CSS and a small JS auto-fit routine; it recalculates on load/resize and after fonts load.
+- Footer year is injected by `script.js` into `#year`.
 
 ## License
+
 Add your preferred license text here.
