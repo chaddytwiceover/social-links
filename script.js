@@ -46,6 +46,94 @@
   document.fonts && document.fonts.ready && document.fonts.ready.then(fitHeading);
 })();
 
+// --- Neural Network Animation ---
+(function() {
+  const canvas = document.getElementById('neural-network');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let nodes = [];
+  const isMobile = window.innerWidth < 768;
+  const nodeCount = isMobile ? 25 : 50; // Reduce nodes on mobile
+  const connectionDistance = isMobile ? 120 : 150;
+  
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    initNodes();
+  }
+  
+  function initNodes() {
+    nodes = [];
+    const count = window.innerWidth < 768 ? 25 : 50;
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        color: ['#00f0ff', '#ff00f0', '#fcee0a'][Math.floor(Math.random() * 3)]
+      });
+    }
+  }
+  
+  function updateNodes() {
+    nodes.forEach(node => {
+      node.x += node.vx;
+      node.y += node.vy;
+      
+      if (node.x < 0 || node.x > width) node.vx *= -1;
+      if (node.y < 0 || node.y > height) node.vy *= -1;
+    });
+  }
+  
+  function drawConnections() {
+    const maxDist = window.innerWidth < 768 ? 120 : 150;
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < maxDist) {
+          const opacity = (1 - distance / maxDist) * 0.3;
+          ctx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  
+  function drawNodes() {
+    nodes.forEach(node => {
+      ctx.fillStyle = node.color;
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = node.color;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    updateNodes();
+    drawConnections();
+    drawNodes();
+    requestAnimationFrame(animate);
+  }
+  
+  window.addEventListener('resize', resize);
+  resize();
+  animate();
+})();
+
   // --- Footer year auto-fill ---
   (function () {
     const yearEl = document.getElementById('year');
