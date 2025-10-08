@@ -54,8 +54,9 @@
   const ctx = canvas.getContext('2d');
   let width, height;
   let nodes = [];
-  const nodeCount = 50;
-  const connectionDistance = 150;
+  const isMobile = window.innerWidth < 768;
+  const nodeCount = isMobile ? 25 : 50; // Reduce nodes on mobile
+  const connectionDistance = isMobile ? 120 : 150;
   
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -65,7 +66,8 @@
   
   function initNodes() {
     nodes = [];
-    for (let i = 0; i < nodeCount; i++) {
+    const count = window.innerWidth < 768 ? 25 : 50;
+    for (let i = 0; i < count; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -87,14 +89,15 @@
   }
   
   function drawConnections() {
+    const maxDist = window.innerWidth < 768 ? 120 : 150;
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dx = nodes[i].x - nodes[j].x;
         const dy = nodes[i].y - nodes[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < connectionDistance) {
-          const opacity = (1 - distance / connectionDistance) * 0.3;
+        if (distance < maxDist) {
+          const opacity = (1 - distance / maxDist) * 0.3;
           ctx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
