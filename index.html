@@ -3,75 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHADDYTWICEOVER // SOCIALS</title>
+    <title>[CHADDYTWICEOVER] — Social Links</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-      /* Ensure the glitch header stays on one line and scales */
-      .glitch {
-        white-space: nowrap;
-        font-size: clamp(2rem, 7vw, 3.5rem);
-        word-break: normal;
-      }
-    </style>
 </head>
 <body>
-
-    <canvas id="neural-network" class="neural-canvas"></canvas>
-    <div class="scanlines"></div>
+    <!-- Cursor trail effect -->
+    <div id="cursor-trail"></div>
+    
+    <!-- Visible grid background -->
+    <div class="grid-background"></div>
 
     <div class="container">
-        <header>
-            <h1 class="glitch" data-text="CHADDYTWICEOVER">CHADDYTWICEOVER</h1>
-            <p class="sub-header">// MY LINKS //</p>
+        <!-- Header Section -->
+        <header class="hero-section">
+            <div class="header-number">01</div>
+            <h1 class="hero-title">[CHADDYTWICEOVER]</h1>
+            <p class="hero-subtitle">Digital presence and social connections</p>
         </header>
 
-        <main class="social-links">
-            <a href="https://twitter.com/chaddytwiceover" target="_blank" class="social-button twitter">
-                <i class="fa-brands fa-x-twitter"></i>
-                <span>X / Twitter</span>
+        <!-- Social Links Section -->
+        <section class="links-section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Social Links</h2>
+            </div>
+            
+            <div class="social-grid">
+                <a href="https://twitter.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="card-header">
+                        <i class="fa-brands fa-x-twitter card-icon"></i>
+                        <span class="card-title">X / Twitter</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square card-external"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Real-time updates and technical insights</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Active</span>
+                                <span class="metric-label">Status</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Daily</span>
+                                <span class="metric-label">Posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-link">View profile <span class="arrow">→</span></span>
+                    </div>
+                </a>
+
+                <a href="https://instagram.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="card-header">
+                        <i class="fa-brands fa-instagram card-icon"></i>
+                        <span class="card-title">Instagram</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square card-external"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Visual content and behind-the-scenes</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Weekly</span>
+                                <span class="metric-label">Updates</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Live</span>
+                                <span class="metric-label">Status</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-link">View profile <span class="arrow">→</span></span>
+                    </div>
+                </a>
+
+                <a href="https://tiktok.com/@chaddytwiceover" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="card-header">
+                        <i class="fa-brands fa-tiktok card-icon"></i>
+                        <span class="card-title">TikTok</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square card-external"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Short-form video content and experiments</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Active</span>
+                                <span class="metric-label">Status</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Weekly</span>
+                                <span class="metric-label">Posts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-link">View profile <span class="arrow">→</span></span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <div class="card-header">
+                        <i class="fa-brands fa-github card-icon"></i>
+                        <span class="card-title">GitHub</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square card-external"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Open source projects and code repositories</p>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-value">Public</span>
+                                <span class="metric-label">Repos</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Active</span>
+                                <span class="metric-label">Status</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-link">View profile <span class="arrow">→</span></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Main Site Link -->
+        <section class="main-site-section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Main Site</h2>
+            </div>
+            
+            <a href="https://chaddytwiceover.com" target="_blank" rel="noopener noreferrer" class="main-site-cta">
+                <i class="fa-solid fa-globe"></i>
+                <span>chaddytwiceover.com</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="https://instagram.com/chaddytwiceover" target="_blank" class="social-button instagram">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-            </a>
-            <a href="https://tiktok.com/@chaddytwiceover" target="_blank" class="social-button tiktok">
-                <i class="fa-brands fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
-            <!-- Added GitHub -->
-            <a href="https://github.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="social-button github">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-            </a>
-        </main>
-        
-        <!-- Minimal main domain link -->
-        <p class="main-domain-minimal">
-            <a class="domain-link" href="https://chaddytwiceover.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-globe" aria-hidden="true"></i>
-                <span class="visually-hidden">Visit main site:</span>
-                <span class="domain-text">chaddytwiceover.com</span>
-            </a>
-        </p>
-        
+        </section>
+
         <!-- Footer -->
         <footer class="site-footer">
-            <div class="footer-inner">
-                <p>© <span id="year"></span> CHADDYTWICEOVER
-                    <br> All rights reserved.</p>
-                <nav aria-label="Footer">
-                    
-                </nav>
+            <div class="footer-content">
+                <div class="footer-row">
+                    <span>© <span id="year"></span> CHADDYTWICEOVER</span>
+                    <span class="separator">|</span>
+                    <span>All rights reserved</span>
+                </div>
+                <div class="footer-row">
+                    <span class="footer-label">Design System v1.0</span>
+                    <span class="separator">|</span>
+                    <span class="footer-label">Built with purpose</span>
+                </div>
             </div>
         </footer>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
