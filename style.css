@@ -94,8 +94,8 @@ body {
   pointer-events: none;
   z-index: 0;
   /* Fade effect at edges */
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 100%);
 }
 
 /* --- CONTAINER --- */
