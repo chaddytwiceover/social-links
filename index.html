@@ -71,6 +71,60 @@
             transform: translate(5px, 5px);
             box-shadow: none;
         }
+        
+        /* C2X Header Animation */
+        @keyframes c2x-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 3px 3px 0 #000;
+            }
+            50% { 
+                transform: scale(1.05);
+                text-shadow: 4px 4px 0 #000, 0 0 10px rgba(251, 255, 72, 0.5);
+            }
+        }
+        
+        @keyframes c2x-glitch {
+            0%, 90%, 100% { 
+                clip-path: inset(0 0 0 0);
+            }
+            92% { 
+                clip-path: inset(10% 0 60% 0);
+                transform: translateX(-2px);
+            }
+            94% { 
+                clip-path: inset(40% 0 30% 0);
+                transform: translateX(2px);
+            }
+            96% { 
+                clip-path: inset(70% 0 10% 0);
+                transform: translateX(-1px);
+            }
+            98% { 
+                clip-path: inset(20% 0 50% 0);
+                transform: translateX(1px);
+            }
+        }
+        
+        .c2x-logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            animation: c2x-pulse 2s ease-in-out infinite, c2x-glitch 4s linear infinite;
+            display: inline-block;
+            will-change: transform;
+        }
+        
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .c2x-logo {
+                animation: none;
+            }
+            
+            .animate-marquee {
+                animation: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-pastel-purple dot-pattern min-h-screen font-space">
@@ -108,13 +162,8 @@
             <!-- Profile Section -->
             <section class="flex flex-col items-center mb-8">
                 <!-- Avatar -->
-                <div class="w-28 h-28 md:w-32 md:h-32 border-4 border-black shadow-brutal-sm overflow-hidden mb-4 bg-cyan-accent flex items-center justify-center">
-                    <img 
-                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=chaddytwiceover&backgroundColor=b6e3f4" 
-                        alt="chaddytwiceover avatar"
-                        class="w-full h-full object-cover"
-                        onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'text-4xl font-bold\'>C</span>';"
-                    >
+                <div class="w-28 h-28 md:w-32 md:h-32 border-4 border-black shadow-brutal-sm overflow-hidden mb-4 bg-bright-yellow flex items-center justify-center">
+                    <span class="c2x-logo">C2X</span>
                 </div>
                 
                 <!-- Username Tag (tilted) -->
@@ -187,10 +236,10 @@
                 <button 
                     id="copy-email-btn"
                     class="btn-brutal flex items-center justify-center gap-2 w-full py-3 px-4 bg-white border-4 border-black shadow-brutal font-semibold text-sm hover:bg-gray-100"
-                    data-email="hello@chaddytwiceover.com"
+                    data-email="contact@chaddytwiceover.com"
                 >
                     <i class="fa-regular fa-envelope"></i>
-                    <span id="email-text">hello@chaddytwiceover.com</span>
+                    <span id="email-text">contact@chaddytwiceover.com</span>
                     <i class="fa-regular fa-copy ml-auto"></i>
                 </button>
                 <p id="copy-feedback" class="text-center text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">
