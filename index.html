@@ -3,295 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHADDYTWICEOVER — Social Links</title>
+    <title>ChaddyTwiceOver | Socials</title>
+    <meta name="description" content="Connect with ChaddyTwiceOver across all platforms.">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts - Space Grotesk -->
+    <!-- Google Fonts: Outfit (Modern, Geometric, Elegant) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'space': ['"Space Grotesk"', 'sans-serif'],
-                    },
-                    colors: {
-                        'pastel-purple': '#D6BCFA',
-                        'acid-green': '#A6FA8F',
-                        'hot-pink': '#FF90E8',
-                        'cyan-accent': '#90F0FF',
-                        'bright-yellow': '#FBFF48',
-                    },
-                    boxShadow: {
-                        'brutal': '5px 5px 0px 0px #000000',
-                        'brutal-sm': '3px 3px 0px 0px #000000',
-                    },
-                },
-            },
-        }
-    </script>
-    
-    <style>
-        /* Radial dot pattern background */
-        .dot-pattern {
-            background-image: radial-gradient(circle, #000 1.5px, transparent 1.5px);
-            background-size: 20px 20px;
-        }
-        
-        /* Marquee animation */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        .animate-marquee {
-            animation: marquee 15s linear infinite;
-        }
-        
-        /* Button press effect */
-        .btn-brutal {
-            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
-        }
-        
-        .btn-brutal:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 2px 2px 0px 0px #000000;
-        }
-        
-        .btn-brutal:active {
-            transform: translate(5px, 5px);
-            box-shadow: none;
-        }
-        
-        /* C2X Header Animation */
-        @keyframes c2x-pulse {
-            0%, 100% { 
-                transform: scale(1);
-                text-shadow: 3px 3px 0 #000;
-            }
-            50% { 
-                transform: scale(1.05);
-                text-shadow: 4px 4px 0 #000, 0 0 10px rgba(251, 255, 72, 0.5);
-            }
-        }
-        
-        @keyframes c2x-glitch {
-            0%, 90%, 100% { 
-                clip-path: inset(0 0 0 0);
-            }
-            92% { 
-                clip-path: inset(10% 0 60% 0);
-                transform: translateX(-2px);
-            }
-            94% { 
-                clip-path: inset(40% 0 30% 0);
-                transform: translateX(2px);
-            }
-            96% { 
-                clip-path: inset(70% 0 10% 0);
-                transform: translateX(-1px);
-            }
-            98% { 
-                clip-path: inset(20% 0 50% 0);
-                transform: translateX(1px);
-            }
-        }
-        
-        .c2x-logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            animation: c2x-pulse 2s ease-in-out infinite, c2x-glitch 4s linear infinite;
-            display: inline-block;
-            will-change: transform;
-        }
-        
-        /* Respect reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            .c2x-logo {
-                animation: none;
-            }
-            
-            .animate-marquee {
-                animation: none;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-pastel-purple dot-pattern min-h-screen font-space">
-    
-    <!-- Scrolling Marquee Header -->
-    <header class="bg-black text-white py-3 overflow-hidden border-b-4 border-black">
-        <div class="flex whitespace-nowrap">
-            <div class="animate-marquee flex">
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-            </div>
-            <div class="animate-marquee flex" aria-hidden="true">
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-                <span class="text-lg md:text-xl font-bold tracking-wide mx-4">CHADDYTWICEOVER • SOCIALS •</span>
-            </div>
-        </div>
-    </header>
+<body>
+    <div class="background-gradient"></div>
+    <div class="noise-overlay"></div>
 
-    <!-- Main Container -->
-    <main class="flex justify-center items-center px-4 py-8 md:py-12">
-        <div class="bg-white border-4 border-black shadow-brutal w-full max-w-lg p-6 md:p-8">
+    <main class="container">
+        <!-- Profile Header -->
+        <header class="profile-header">
+            <div class="avatar-container">
+                <!-- Using a placeholder or the previous 'C2X' text if no image is available, 
+                     but styling it elegantly. -->
+                <div class="avatar-placeholder">C2X</div>
+            </div>
+            <h1 class="profile-name">ChaddyTwiceOver</h1>
+            <p class="profile-bio">Digital Creator & Developer</p>
+        </header>
+
+        <!-- Social Links -->
+        <div class="links-container">
+            <a href="https://chaddytwiceover.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon"><i class="fa-solid fa-globe"></i></div>
+                <span class="link-text">Official Website</span>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <a href="https://instagram.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+                <span class="link-text">Instagram</span>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <a href="https://twitter.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-x-twitter"></i></div>
+                <span class="link-text">Twitter / X</span>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+
+            <a href="https://tiktok.com/@chaddytwiceover" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-icon"><i class="fa-brands fa-tiktok"></i></div>
+                <span class="link-text">TikTok</span>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <button id="copy-email-btn" class="email-btn" data-email="contact@chaddytwiceover.com" aria-label="Copy email address">
+                <i class="fa-regular fa-envelope"></i>
+                <span>contact@chaddytwiceover.com</span>
+            </button>
+            <div id="copy-feedback" class="copy-feedback">Copied to clipboard</div>
             
-            <!-- Profile Section -->
-            <section class="flex flex-col items-center mb-8">
-                <!-- Avatar -->
-                <div class="w-28 h-28 md:w-32 md:h-32 border-4 border-black shadow-brutal-sm overflow-hidden mb-4 bg-bright-yellow flex items-center justify-center">
-                    <span class="c2x-logo">C2X</span>
-                </div>
-                
-                <!-- Username Tag (tilted) -->
-                <h1 class="bg-bright-yellow border-4 border-black shadow-brutal-sm px-4 py-2 text-xl md:text-2xl font-bold -rotate-2 mb-4">
-                    @chaddytwiceover
-                </h1>
-                
-                <!-- Status Badge -->
-                <div class="flex items-center gap-2 bg-acid-green border-2 border-black px-3 py-1">
-                    <span class="w-2 h-2 bg-black rounded-full animate-pulse"></span>
-                    <span class="text-sm font-semibold">Online Now</span>
-                </div>
-            </section>
-
-            <!-- Links Section -->
-            <section class="flex flex-col gap-4 mb-8">
-                <!-- Website Button -->
-                <a 
-                    href="https://chaddytwiceover.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="btn-brutal flex items-center justify-center gap-3 w-full py-4 px-6 bg-cyan-accent border-4 border-black shadow-brutal font-bold text-lg"
-                >
-                    <i class="fa-solid fa-globe"></i>
-                    <span>Website</span>
-                </a>
-                
-                <!-- Instagram Button -->
-                <a 
-                    href="https://instagram.com/chaddytwiceover" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="btn-brutal flex items-center justify-center gap-3 w-full py-4 px-6 bg-hot-pink border-4 border-black shadow-brutal font-bold text-lg"
-                >
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                
-                <!-- Twitter/X Button -->
-                <a 
-                    href="https://twitter.com/chaddytwiceover" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="btn-brutal flex items-center justify-center gap-3 w-full py-4 px-6 bg-bright-yellow border-4 border-black shadow-brutal font-bold text-lg"
-                >
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <span>Twitter / X</span>
-                </a>
-                
-                <!-- TikTok Button -->
-                <a 
-                    href="https://tiktok.com/@chaddytwiceover" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="btn-brutal flex items-center justify-center gap-3 w-full py-4 px-6 bg-acid-green border-4 border-black shadow-brutal font-bold text-lg"
-                >
-                    <i class="fa-brands fa-tiktok"></i>
-                    <span>TikTok</span>
-                </a>
-            </section>
-
-            <!-- Footer -->
-            <footer class="border-t-4 border-black pt-6">
-                <!-- Copyright -->
-                <p class="text-center text-sm font-medium mb-4">
-                    © <span id="year"></span> CHADDYTWICEOVER. All rights reserved.
-                </p>
-                
-                <!-- Copy Email Box -->
-                <button 
-                    id="copy-email-btn"
-                    class="btn-brutal flex items-center justify-center gap-2 w-full py-3 px-4 bg-white border-4 border-black shadow-brutal font-semibold text-sm hover:bg-gray-100"
-                    data-email="contact@chaddytwiceover.com"
-                >
-                    <i class="fa-regular fa-envelope"></i>
-                    <span id="email-text">contact@chaddytwiceover.com</span>
-                    <i class="fa-regular fa-copy ml-auto"></i>
-                </button>
-                <p id="copy-feedback" class="text-center text-sm font-medium mt-2 opacity-0 transition-opacity duration-300">
-                    ✓ Copied to clipboard!
-                </p>
-            </footer>
-        </div>
+            <p class="copyright">© <span id="year"></span> ChaddyTwiceOver</p>
+        </footer>
     </main>
 
-    <script>
-        // Set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Copy email functionality
-        const copyBtn = document.getElementById('copy-email-btn');
-        const feedback = document.getElementById('copy-feedback');
-        
-        copyBtn.addEventListener('click', async function() {
-            const email = this.dataset.email;
-            
-            try {
-                await navigator.clipboard.writeText(email);
-                feedback.classList.remove('opacity-0');
-                feedback.classList.add('opacity-100');
-                
-                setTimeout(() => {
-                    feedback.classList.remove('opacity-100');
-                    feedback.classList.add('opacity-0');
-                }, 2000);
-            } catch (err) {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = email;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-9999px';
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    feedback.classList.remove('opacity-0');
-                    feedback.classList.add('opacity-100');
-                    
-                    setTimeout(() => {
-                        feedback.classList.remove('opacity-100');
-                        feedback.classList.add('opacity-0');
-                    }, 2000);
-                } catch (e) {
-                    console.error('Failed to copy email');
-                }
-                document.body.removeChild(textArea);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

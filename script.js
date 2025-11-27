@@ -1,70 +1,52 @@
-// ============================================
-// CHADDYTWICEOVER DESIGN SYSTEM - INTERACTIONS
-// Version 1.0 - November 2025
-// ============================================
+// ChaddyTwiceOver - Interactions
 
-// --- Cursor Trail Effect ---
-(function() {
-  const trail = document.getElementById('cursor-trail');
-  if (!trail) return;
-  
-  // Check if device supports hover (not mobile)
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-  if (isMobile || prefersReducedMotion) {
-    trail.style.display = 'none';
-    return;
-  }
-  
-  let mouseX = 0;
-  let mouseY = 0;
-  let trailX = 0;
-  let trailY = 0;
-  
-  // Update mouse position
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-  
-  // Animate trail with smooth following
-  function animateTrail() {
-    // Ease towards mouse position
-    trailX += (mouseX - trailX) * 0.1;
-    trailY += (mouseY - trailY) * 0.1;
-    
-    trail.style.left = trailX + 'px';
-    trail.style.top = trailY + 'px';
-    
-    requestAnimationFrame(animateTrail);
-  }
-  
-  animateTrail();
-})();
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Footer Year Auto-Fill ---
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 
-// --- Footer Year Auto-Fill ---
-(function() {
-  const yearEl = document.getElementById('year');
-  if (!yearEl) return;
-  yearEl.textContent = new Date().getFullYear();
-})();
+    // --- Copy Email Functionality ---
+    const copyBtn = document.getElementById('copy-email-btn');
+    const feedback = document.getElementById('copy-feedback');
 
-// --- Smooth Scroll for Internal Links ---
-(function() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-      
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+    if (copyBtn && feedback) {
+        copyBtn.addEventListener('click', async () => {
+            const email = copyBtn.dataset.email;
+            
+            try {
+                await navigator.clipboard.writeText(email);
+                showFeedback();
+            } catch (err) {
+                // Fallback
+                fallbackCopy(email);
+            }
         });
-      }
-    });
-  });
-})();
+
+        function showFeedback() {
+            feedback.classList.add('visible');
+            setTimeout(() => {
+                feedback.classList.remove('visible');
+            }, 2000);
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showFeedback();
+            } catch (e) {
+                console.error('Failed to copy email', e);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+    }
+});
