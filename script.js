@@ -1,52 +1,38 @@
-// ChaddyTwiceOver - Interactions
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Footer Year Auto-Fill ---
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-
-    // --- Copy Email Functionality ---
-    const copyBtn = document.getElementById('copy-email-btn');
-    const feedback = document.getElementById('copy-feedback');
-
-    if (copyBtn && feedback) {
-        copyBtn.addEventListener('click', async () => {
-            const email = copyBtn.dataset.email;
-            
-            try {
-                await navigator.clipboard.writeText(email);
-                showFeedback();
-            } catch (err) {
-                // Fallback
-                fallbackCopy(email);
-            }
-        });
-
-        function showFeedback() {
-            feedback.classList.add('visible');
-            setTimeout(() => {
-                feedback.classList.remove('visible');
-            }, 2000);
-        }
-
-        function fallbackCopy(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-9999px';
-            document.body.appendChild(textArea);
-            textArea.select();
-            
-            try {
-                document.execCommand('copy');
-                showFeedback();
-            } catch (e) {
-                console.error('Failed to copy email', e);
-            }
-            
-            document.body.removeChild(textArea);
-        }
-    }
+    activateHeartTrail();
 });
+
+function activateHeartTrail() {
+    const trailLayer = getHeartLayer();
+    if (!trailLayer) return;
+
+    let lastTrailTime = 0;
+    document.addEventListener('pointermove', (evt) => {
+        if (evt.pointerType && evt.pointerType !== 'mouse' && evt.pointerType !== 'pen') return;
+        const now = Date.now();
+        if (now - lastTrailTime < 70) return;
+        lastTrailTime = now;
+        spawnHeart(evt.clientX, evt.clientY, 1500, trailLayer);
+    });
+}
+
+function spawnHeart(x, y, duration = 1500, layer = document.body) {
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    const size = 10 + Math.random() * 10;
+    heart.style.width = `${size}px`;
+    heart.style.height = `${size}px`;
+    heart.style.left = `${x - size / 2}px`;
+    heart.style.top = `${y - size / 2}px`;
+    heart.style.animationDuration = `${duration}ms`;
+    heart.style.opacity = String(0.55 + Math.random() * 0.4);
+    layer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, duration);
+}
+
+function getHeartLayer() {
+    return document.getElementById('heart-trail') || document.body;
+}
