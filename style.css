@@ -161,24 +161,26 @@ body {
 .signal-dots span:nth-child(3) { animation-delay: 0.3s; }
 
 .link-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(120px, 45%), 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   padding: 0.5rem 0 0;
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 .icon-tile {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  aspect-ratio: 1/1;
-  border-radius: 28px;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 16px;
   color: var(--text-bright);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
   border: 1px solid var(--tile-border);
   text-decoration: none;
-  box-shadow: var(--tile-shadow);
+  box-shadow: 0 12px 35px rgba(10, 0, 8, 0.4);
   overflow: hidden;
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
@@ -186,50 +188,36 @@ body {
 .icon-tile::before {
   content: '';
   position: absolute;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.32), transparent 55%);
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
   opacity: 0;
   transition: opacity var(--transition);
 }
 
 .icon-tile::after {
   content: attr(data-label);
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translate(-50%, 120%);
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(9, 1, 10, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0;
-  transition: transform var(--transition), opacity var(--transition);
 }
 
 .icon-tile i {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  z-index: 1;
+  font-size: 1.25rem;
+  width: 1.5rem;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .icon-tile:hover,
 .icon-tile:focus-visible {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-3px);
   border-color: var(--tile-hover);
-  box-shadow: 0 35px 80px rgba(255, 81, 128, 0.35);
+  box-shadow: 0 18px 45px rgba(255, 81, 128, 0.3);
 }
 
 .icon-tile:hover::before,
 .icon-tile:focus-visible::before { opacity: 1; }
-
-.icon-tile:hover::after,
-.icon-tile:focus-visible::after {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
 
 .icon-tile:focus-visible { outline: none; }
 
@@ -263,39 +251,22 @@ body {
   .identity { padding: 2rem 1rem 1.5rem; margin-bottom: 1.5rem; }
   .brand-name { letter-spacing: 0.12em; }
   .halo { width: 160px; height: 160px; }
-  .link-grid { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.85rem; 
-  }
-  .icon-tile { 
-    border-radius: 20px; 
-    min-height: 90px;
-  }
-  .icon-tile i { font-size: 1.75rem; }
-  .icon-tile::after {
-    opacity: 1;
-    transform: translate(-50%, 0);
-    bottom: 10px;
-    padding: 0.25rem 0.6rem;
-    font-size: 0.65rem;
-  }
+  .link-grid { gap: 0.6rem; }
+  .icon-tile { padding: 0.8rem 1rem; border-radius: 14px; }
+  .icon-tile::after { font-size: 0.85rem; }
 }
 
 @media (max-width: 360px) {
   .brand-name { font-size: 1.5rem; letter-spacing: 0.08em; }
-  .link-grid { gap: 0.65rem; }
-  .icon-tile { min-height: 80px; border-radius: 16px; }
-  .icon-tile i { font-size: 1.5rem; }
-  .icon-tile::after { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
+  .link-grid { gap: 0.5rem; }
+  .icon-tile { padding: 0.7rem 0.9rem; border-radius: 12px; }
+  .icon-tile i { font-size: 1.1rem; }
+  .icon-tile::after { font-size: 0.8rem; }
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .icon-tile::after {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
   .icon-tile:active {
-    transform: scale(0.96);
+    transform: scale(0.97);
     border-color: var(--tile-hover);
   }
 }
