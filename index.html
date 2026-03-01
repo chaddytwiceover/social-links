@@ -4,118 +4,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CHADDYTWICEOVER's Social Links</title>
-  <meta name="description" content="An interactive social links portal for CHADDYTWICEOVER.">
-  <meta name="theme-color" content="#111827">
+  <title>CHADDYTWICEOVER | Web Builder</title>
+  <meta name="description" content="Social links for CHADDYTWICEOVER, South Florida independent web builder.">
+  <meta name="theme-color" content="#0b0114">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="CHADDYTWICEOVER | Interactive Social Hub">
-  <meta property="og:description"
-    content="Explore social, business, and contact links in an interactive hub for CHADDYTWICEOVER.">
-  <meta property="og:image" content="https://example.com/og-image.jpg">
-  <meta property="og:url" content="https://your-subdomain.example.com/">
+  <meta property="og:title" content="CHADDYTWICEOVER | Web Builder">
+  <meta property="og:description" content="Social links for CHADDYTWICEOVER, South Florida independent web builder.">
+  <meta property="og:image" content="miami-bg.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CHADDYTWICEOVER | Interactive Social Hub">
-  <meta name="twitter:description"
-    content="Explore social, business, and contact links in an interactive hub for CHADDYTWICEOVER.">
-  <meta name="twitter:image" content="https://example.com/og-image.jpg">
+  <meta name="twitter:title" content="CHADDYTWICEOVER | Web Builder">
+  <meta name="twitter:description" content="Social links for CHADDYTWICEOVER, South Florida independent web builder.">
 
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-  <div class="mesh" aria-hidden="true"></div>
 
-  <main class="portal" aria-labelledby="site-title">
-    <header class="intro fade-in">
-      <h1 id="site-title">CHADDYTWICEOVER | Web Builder</h1>
+  <!-- Background image layer -->
+  <div class="bg" aria-hidden="true"></div>
+  <!-- Colour overlay / vignette -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="page">
+
+    <!-- ── Avatar ── -->
+    <div class="avatar-wrap fade-up" style="--delay:0s">
+      <div class="avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- ── Name / bio ── -->
+    <header class="profile fade-up" style="--delay:.08s" aria-labelledby="site-title">
+      <h1 id="site-title">CHADDYTWICEOVER</h1>
+      <p class="bio">Web Builder &nbsp;·&nbsp; South Florida</p>
     </header>
 
-    <nav class="links fade-in" aria-label="Primary">
-      <a class="link-button" data-category="social" href="https://github.com/chaddytwiceover" target="_blank"
-        rel="noopener noreferrer">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="currentColor">
+    <!-- ── Links ── -->
+    <nav class="links fade-up" style="--delay:.16s" aria-label="Social links">
+
+      <a class="btn" href="https://github.com/chaddytwiceover" target="_blank" rel="noopener noreferrer"
+        id="link-github">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
           </svg>
-          <span class="link-label">GitHub</span>
         </span>
+        <span class="btn-label">GitHub</span>
       </a>
 
-      <a class="link-button" data-category="social" href="https://x.com/chaddytwiceover" target="_blank"
-        rel="noopener noreferrer">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="currentColor">
+      <a class="btn" href="https://x.com/chaddytwiceover" target="_blank" rel="noopener noreferrer" id="link-twitter">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
-          <span class="link-label">Twitter / X</span>
         </span>
+        <span class="btn-label">Twitter / X</span>
       </a>
 
-      <a class="link-button" data-category="social" href="https://tiktok.com/@chaddytwiceover" target="_blank"
-        rel="noopener noreferrer">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="currentColor">
+      <a class="btn" href="https://tiktok.com/@chaddytwiceover" target="_blank" rel="noopener noreferrer"
+        id="link-tiktok">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
           </svg>
-          <span class="link-label">TikTok</span>
         </span>
+        <span class="btn-label">TikTok</span>
       </a>
 
-      <a class="link-button" data-category="social" href="https://instagram.com/chaddytwiceover" target="_blank"
-        rel="noopener noreferrer">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      <a class="btn" href="https://instagram.com/chaddytwiceover" target="_blank" rel="noopener noreferrer"
+        id="link-instagram">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
           </svg>
-          <span class="link-label">Instagram</span>
         </span>
+        <span class="btn-label">Instagram</span>
       </a>
 
-      <a class="link-button cta" data-category="business" href="https://chaddytwiceover.com" target="_blank"
-        rel="noopener noreferrer">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      <a class="btn btn--cta" href="https://chaddytwiceover.com" target="_blank" rel="noopener noreferrer"
+        id="link-site">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
           </svg>
-          <span class="link-label">Main Site</span>
         </span>
+        <span class="btn-label">chaddytwiceover.com</span>
       </a>
 
-      <a class="link-button" data-category="contact" href="mailto:contact@chaddytwiceover.com">
-        <span class="link-label-wrap">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
+      <a class="btn" href="mailto:contact@chaddytwiceover.com" id="link-email">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
           </svg>
-          <span class="link-label">Email</span>
         </span>
+        <span class="btn-label">Email</span>
       </a>
+
     </nav>
 
-    <footer class="actions fade-in" aria-label="Quick actions">
-      <button id="copy-email" class="ghost-button" type="button" data-email="contact@chaddytwiceover.com">Copy
-        email</button>
-      <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    <!-- ── Footer ── -->
+    <footer class="footer fade-up" style="--delay:.24s">
+      <p>© 2026 CHADDYTWICEOVER</p>
     </footer>
+
   </main>
 
   <script src="/app.js" defer></script>
