@@ -11,7 +11,6 @@
   --border: rgba(255, 255, 255, 0.1);
   --radius-pill: 100px;
   --radius-avatar: 50%;
-  --max-w: 680px;
 
   --glow-pink: 0 0 18px rgba(255, 46, 255, 0.5);
   --glow-cyan: 0 0 18px rgba(0, 245, 255, 0.5);
@@ -103,17 +102,20 @@ body {
   box-shadow: var(--glow-pink);
   color: #fff;
   position: relative;
+  isolation: isolate;
+  /* keeps ::before z-index scoped */
   transition: box-shadow 0.3s ease;
 }
 
+/* Gradient ring behind the avatar disc */
 .avatar::before {
   content: '';
   position: absolute;
   inset: -3px;
-  border-radius: inherit;
+  border-radius: 50%;
   background: linear-gradient(135deg, var(--pink), var(--cyan), var(--purple));
   z-index: -1;
-  border-radius: 50%;
+  /* safe now because of isolation:isolate on parent */
 }
 
 .avatar:hover {
@@ -161,6 +163,7 @@ h1 {
 .btn {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
+  /* icon | label | phantom spacer */
   /* icon | label | spacer = centred label */
   align-items: center;
   width: 100%;
@@ -244,11 +247,9 @@ h1 {
   color: #fff;
 }
 
-/* Label cell – centred */
+/* Label cell – sits in the centre column and is text-centred */
 .btn-label {
   text-align: center;
-  /* pull it back by one icon width so it's truly centred on the full button */
-  margin-right: 40px;
 }
 
 /* ─── Footer ─────────────────────────────────────────── */
@@ -259,6 +260,10 @@ h1 {
   letter-spacing: 0.04em;
   text-align: center;
   padding-top: 8px;
+}
+
+.footer p {
+  margin: 0;
 }
 
 /* ─── Fade-up entrance animations ───────────────────── */
