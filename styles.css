@@ -10,7 +10,6 @@
   --muted: rgba(255, 255, 255, 0.55);
   --border: rgba(255, 255, 255, 0.1);
   --radius-pill: 100px;
-  --radius-avatar: 50%;
 
   --glow-pink: 0 0 18px rgba(255, 46, 255, 0.5);
   --glow-cyan: 0 0 18px rgba(0, 245, 255, 0.5);
@@ -87,42 +86,7 @@ body {
   gap: 0;
 }
 
-/* ─── Avatar ─────────────────────────────────────────── */
-.avatar-wrap {
-  margin-bottom: 20px;
-}
-
-.avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: var(--radius-avatar);
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--purple), var(--pink));
-  box-shadow: var(--glow-pink);
-  color: #fff;
-  position: relative;
-  isolation: isolate;
-  /* keeps ::before z-index scoped */
-  transition: box-shadow 0.3s ease;
-}
-
-/* Gradient ring behind the avatar disc */
-.avatar::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--pink), var(--cyan), var(--purple));
-  z-index: -1;
-  /* safe now because of isolation:isolate on parent */
-}
-
-.avatar:hover {
-  box-shadow: var(--glow-cyan);
-}
-
-/* ─── Profile ────────────────────────────────────────── */
+/* ─── Profile ────────────────────────────────────────── -->
 .profile {
   text-align: center;
   margin-bottom: 28px;
@@ -197,7 +161,7 @@ h1 {
   width: 60%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transition: 0.45s ease;
+  transition: left 0.45s ease;
 }
 
 .btn:hover::before {

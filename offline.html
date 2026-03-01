@@ -5,16 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offline | CHADDYTWICEOVER</title>
   <meta name="description" content="Offline fallback page for CHADDYTWICEOVER clean portal.">
+  <meta name="theme-color" content="#0b0114">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <main class="portal" aria-labelledby="offline-title">
-    <header class="intro">
+  <!-- Background image layer -->
+  <div class="bg" aria-hidden="true"></div>
+  <!-- Colour overlay / vignette -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="page" aria-labelledby="offline-title">
+    <header class="profile" aria-labelledby="offline-title">
       <h1 id="offline-title">CHADDYTWICEOVER</h1>
-      <p>INDEPENDENT WEB BUILDER</p>
+      <p class="bio">INDEPENDENT WEB BUILDER</p>
     </header>
     <section class="links" aria-label="Offline notice">
-      <p class="link-button" role="status" aria-live="polite">You are currently offline. Please reconnect to continue.</p>
+      <div class="btn" role="status" aria-live="polite">
+        <span class="btn-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="1" y1="1" x2="23" y2="23" />
+            <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
+            <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
+            <path d="M10.71 5.05A16 16 0 0 1 22.56 9" />
+            <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" />
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+            <line x1="12" y1="20" x2="12.01" y2="20" />
+          </svg>
+        </span>
+        <span class="btn-label">You are currently offline. Please reconnect to continue.</span>
+      </div>
     </section>
   </main>
 </body>

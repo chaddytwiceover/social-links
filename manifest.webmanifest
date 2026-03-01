@@ -1,10 +1,11 @@
 {
   "name": "CHADDYTWICEOVER Clean Portal",
   "short_name": "CHADDY",
+  "description": "Social links for CHADDYTWICEOVER, South Florida independent web builder.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f7f2e8",
-  "theme_color": "#f7f2e8",
+  "background_color": "#0b0114",
+  "theme_color": "#0b0114",
   "icons": []
 }

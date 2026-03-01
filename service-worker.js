@@ -6,6 +6,7 @@ const PRECACHE_ASSETS = [
   '/styles.css',
   '/app.js',
   '/manifest.webmanifest',
+  '/miami-bg.jpg',
   OFFLINE_URL
 ];
 
@@ -38,8 +39,11 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+        // Only cache same-origin or successful responses (avoid opaque 0-byte entries)
+        if (response.status === 200 && response.type !== 'opaque') {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+        }
         return response;
       })
       .catch(() =>
