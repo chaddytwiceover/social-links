@@ -225,19 +225,36 @@ h1 {
 }
 
 .link-label-wrap {
-  display: grid;
-  gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link-icon {
+  flex-shrink: 0;
+  color: var(--accent-2);
+  transition: all 0.3s ease;
+}
+
+.link-button:hover .link-icon {
+  color: var(--accent);
+  transform: scale(1.1);
+  filter: drop-shadow(var(--neon-pink));
+}
+
+.link-button.cta .link-icon {
+  color: var(--accent);
+}
+
+.link-button.cta:hover .link-icon {
+  color: #fff;
+  filter: drop-shadow(var(--neon-cyan));
 }
 
 .link-label {
   font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
-}
-
-.link-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
 }
 
 .link-tag {
