@@ -79,7 +79,7 @@ body::after {
 
 .portal {
   position: relative;
-  width: min(100%, 500px);
+  width: min(100%, 420px);
   padding: clamp(24px, 5vw, 40px);
   border: 1px solid var(--border);
   border-radius: 24px;
@@ -119,8 +119,8 @@ body::after {
 
 h1 {
   margin: 12px 0;
-  font-size: clamp(2rem, 6vw, 2.8rem);
-  letter-spacing: 0.1em;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  letter-spacing: 0.05em;
   font-weight: 900;
   text-transform: uppercase;
   background: linear-gradient(to bottom, #fff, var(--accent));
@@ -136,40 +136,7 @@ h1 {
   font-size: 1rem;
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 24px 0;
-}
 
-.chip {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: var(--chip);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 200ms ease;
-}
-
-.chip:hover {
-  background: rgba(255, 0, 255, 0.2);
-  border-color: var(--accent);
-  box-shadow: var(--neon-pink);
-}
-
-.chip.active {
-  border-color: var(--accent-2);
-  background: var(--chip-active);
-  box-shadow: var(--neon-cyan);
-}
 
 .links {
   display: grid;
@@ -178,12 +145,11 @@ h1 {
 
 .link-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
+  padding: 16px 24px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: 50px;
   background: var(--surface);
   color: var(--text);
   text-decoration: none;
@@ -208,10 +174,10 @@ h1 {
 }
 
 .link-button:hover {
-  transform: translateX(5px);
+  transform: translateY(-3px);
   background: var(--surface-strong);
   border-color: var(--accent-2);
-  box-shadow: -5px 0 15px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
 }
 
 .link-button.cta {
@@ -221,16 +187,19 @@ h1 {
 
 .link-button.cta:hover {
   border-color: var(--accent);
-  box-shadow: -5px 0 15px rgba(255, 0, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
 }
 
 .link-label-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  width: 100%;
 }
 
 .link-icon {
+  position: absolute;
+  left: 24px;
   flex-shrink: 0;
   color: var(--accent-2);
   transition: all 0.3s ease;
@@ -252,21 +221,13 @@ h1 {
 }
 
 .link-label {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
+  text-align: center;
 }
 
-.link-tag {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--accent-2);
-}
+
 
 .actions {
   margin-top: 24px;
@@ -313,10 +274,6 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.controls.fade-in {
-  animation-delay: 0.1s;
 }
 
 .links.fade-in {
