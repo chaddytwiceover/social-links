@@ -1,4 +1,4 @@
-const CACHE_NAME = 'clean-portal-v2';
+const CACHE_NAME = 'clean-portal-v3';
 const OFFLINE_URL = '/offline.html';
 const PRECACHE_ASSETS = [
   '/',
@@ -35,6 +35,12 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
+  // Let Google Fonts load normally (don't intercept)
+  const url = new URL(event.request.url);
+  if (url.hostname.includes('fonts.googleapis.com') || url.hostname.includes('fonts.gstatic.com')) {
+    return;
+  }
 
   event.respondWith(
     fetch(event.request)
