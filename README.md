@@ -1,58 +1,92 @@
-# CHADDYTWICEOVER — Clean Portal
+# CHADDYTWICEOVER — Social Link Hub
 
-A lightweight social links portal built with plain HTML, CSS, and JavaScript.
+A minimal social links portal built with Next.js, React, TypeScript, and Tailwind CSS.
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|---|---|---|
+| [Next.js](https://nextjs.org/) | 16 | React framework, static export |
+| [React](https://react.dev/) | 18 | UI component library |
+| [TypeScript](https://www.typescriptlang.org/) | 5 | Type safety |
+| [Tailwind CSS](https://tailwindcss.com/) | 3 | Utility-first CSS styling |
+| [Framer Motion](https://www.framer.com/motion/) | 11 | Animations and transitions |
+| [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) | — | Display typeface (Google Fonts) |
+| [PostCSS](https://postcss.org/) + Autoprefixer | — | CSS processing |
 
 ## Overview
 
 This project is a minimal landing page with:
 
 - a clean central profile section
-- social and contact links
+- social and contact links grouped by category
+- smooth stagger animations via Framer Motion
 - progressive web app support (manifest + service worker)
 - offline fallback page
 
-## Project Files
+## Project Structure
 
-- `index.html` — Main page markup and link list
-- `styles.css` — Visual styles, layout, and motion preferences support
-- `app.js` — Registers the service worker
-- `service-worker.js` — Caches app shell and serves offline fallback
-- `offline.html` — Offline message page
-- `manifest.webmanifest` — PWA metadata
+```
+app/
+  layout.tsx          — Root layout, metadata, and font loading
+  page.tsx            — Main page with link buttons and animations
+data/
+  links.ts            — Link definitions (label, url, category, icon id)
+styles/
+  globals.css         — Global styles and Tailwind base imports
+public/               — Static assets (images, favicon, etc.)
+service-worker.js     — Caches app shell and serves offline fallback
+offline.html          — Offline message page
+manifest.webmanifest  — PWA metadata
+next.config.js        — Next.js config (static export enabled)
+tailwind.config.js    — Tailwind theme extensions
+```
 
-## Usage
+## Development
 
-1. Serve the folder with any static server (recommended for service worker support).
-2. Open the site in a modern browser.
-
-Example (Node):
+Install dependencies:
 
 ```bash
-npx serve .
+npm install
 ```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in a browser.
+
+## Build
+
+```bash
+npm run build
+```
+
+This generates a fully static site in the `out/` directory via Next.js static export.
 
 ## Customization
 
-- Update profile text and links in `index.html`.
-- Adjust colors, spacing, and typography in `styles.css`.
+- Add or edit links in `data/links.ts`.
+- Adjust colors, spacing, and typography in `tailwind.config.js` and `styles/globals.css`.
+- Update metadata (title, description, OG image) in `app/layout.tsx`.
 - Update app name/theme values in `manifest.webmanifest`.
 - Bump the cache name in `service-worker.js` when deploying asset changes.
 
 ## Notes
 
 - Service workers require `http://localhost` or `https://`.
-- No build step is required.
+- The site outputs as a static export (`output: 'export'` in `next.config.js`) — no Node.js server is needed to host it.
 
 ## Deploy on IONOS
 
-1. In your IONOS hosting panel, open your domain’s webspace (document root).
-2. Upload these files to the web root:
-   - `index.html`
-   - `styles.css`
-   - `app.js`
+1. Run `npm run build` locally to generate the `out/` directory.
+2. In your IONOS hosting panel, open your domain's webspace (document root).
+3. Upload the contents of the `out/` directory to the web root, along with:
    - `service-worker.js`
    - `offline.html`
    - `manifest.webmanifest`
-3. Ensure HTTPS is enabled for the domain (required for service worker in production).
-4. After each release, update `CACHE_NAME` in `service-worker.js` (for example, `clean-portal-v2`) so visitors receive fresh assets.
-5. Open your live URL and hard refresh once to verify updated cache and offline fallback behavior.
+4. Ensure HTTPS is enabled for the domain (required for service worker in production).
+5. After each release, update `CACHE_NAME` in `service-worker.js` (for example, `clean-portal-v2`) so visitors receive fresh assets.
+6. Open your live URL and hard refresh once to verify updated cache and offline fallback behavior.
