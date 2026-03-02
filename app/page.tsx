@@ -146,15 +146,14 @@ export default function HomePage() {
 }
 
 function LinkButton({ label, href, icon, external = true }: LinkButtonProps) {
-  const isExternal = external !== false;
-  const ariaLabel = isExternal ? `${label} (opens in new tab)` : label;
+  const ariaLabel = external !== false ? `${label} (opens in new tab)` : label;
 
   return (
     <motion.a
       variants={row}
       href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
+      target={external !== false ? "_blank" : undefined}
+      rel={external !== false ? "noopener noreferrer" : undefined}
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 520, damping: 32 }}
