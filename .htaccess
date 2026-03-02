@@ -1,7 +1,8 @@
 RewriteEngine On
 
-# Force HTTPS
+# Force HTTPS only on primary domain
 
+RewriteCond %{HTTP_HOST} ^(www\.)?social\.chaddytwiceover\.com$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
