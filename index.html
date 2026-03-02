@@ -22,7 +22,10 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Story+Script&display=swap" rel="stylesheet">
+  <!-- Non-blocking font load: media=print swaps to all once loaded, noscript fallback ensures render without JS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Story+Script&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Story+Script&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="/miami-bg.jpg" as="image">
   <link rel="stylesheet" href="/styles.css">
 </head>
 
